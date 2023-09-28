@@ -1,0 +1,13 @@
+iterm2
+arc
+visual-studio-code
+alfred
+alt-tab
+app-cleaner
+discord
+vlc
+hiddenbar
+mechvibes
+spotify
+figma
+github
