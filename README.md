@@ -44,3 +44,13 @@ Font: Hack Nerd Font Mono
 ### Clean my mac
 
 [Clean My Mac](https://cmacked.com/?s=clean+my+mac)
+
+# OS Settings
+
+1. Finder
+2. Dock
+3. Menu Bar
+
+# Inspo
+
+[YouTube - Code Garden](https://www.youtube.com/watch?v=2_ZbslLnshw&list=PLGxdQClfjj1bqVf9cTtn0V3-aSsUYGJQl&index=3)
