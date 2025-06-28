@@ -1,7 +1,7 @@
 iterm2
 arc
 visual-studio-code
-alfred
+raycast
 alt-tab
 app-cleaner
 discord
