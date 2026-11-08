@@ -1,56 +1,99 @@
 # My Mac Setup 💻
 
-This repo contains info on all the apps / tools / settings I use on my Mac.
+Apps, tools and settings I use on my Mac (Apple Silicon, macOS 27).
 
-## Homebrew / Terminal / Shell
+## Quick start
 
-### Homebrew
-
-[Homebrew](https://brew.sh/) allows us to install tools and apps from the command line.
-
-To install it, open up the built in `Terminal` app and run this command:
+On a fresh Mac, open `Terminal` and run:
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+git clone https://github.com/liammelkersson/mac-setup.git ~/dev/mac-setup
+cd ~/dev/mac-setup
+./setup.sh
 ```
+
+`setup.sh` is safe to re-run. It installs:
+
+1. Xcode command line tools
+2. [Homebrew](https://brew.sh/)
+3. Everything in the [`Brewfile`](Brewfile) (CLI tools and apps)
+4. [Oh My Zsh](https://ohmyz.sh/) with Powerlevel10k, zsh-autosuggestions and zsh-syntax-highlighting
+5. Dotfiles from [`dotfiles/`](dotfiles) (symlinked, existing files are kept as `.backup`)
+6. [Bun](https://bun.sh/) and Node LTS via nvm
+7. A `~/dev` folder
+
+Then do the [manual steps](#manual-steps).
+
+## What's in the Brewfile
+
+| Group | Apps / tools |
+| --- | --- |
+| Terminals and editors | Ghostty, iTerm2, Warp, Zed, VS Code |
+| Dev tools | git, gh, Fork, GitHub Desktop, gcloud CLI, LM Studio, T3 Code, SF Symbols, Firefox Developer Edition |
+| Languages | nvm, uv, pipx, rbenv/Ruby, Composer, fvm (Flutter), OpenJDK 17/21, MariaDB, xcodegen |
+| AI | Claude, ChatGPT |
+| Browsers | Arc, Zen, Helium, Chrome |
+| Design | Figma, Rotato |
+| Work | Raycast, Linear, Notion, Obsidian, Slack, Microsoft 365 (Teams, Outlook, Word, Excel, PowerPoint, OneDrive) |
+| Menu bar and utilities | AltTab, Ice, Hidden Bar, Stats, SwiftBar, LinearMouse, LookAway, Flux, AppCleaner, KeyboardCleanTool, Mechvibes, Aerial |
+| Media | Spotify (+ spicetify), VLC, HandBrake, ffmpeg, yt-dlp |
+| Docs | pandoc, poppler, ghostscript, librsvg |
+| Gaming | Discord, Steam, SteelSeries GG |
+
+To refresh the Brewfile from the current Mac: `brew bundle dump --force --file=Brewfile`, then re-group by hand.
+
+## Manual steps
+
+### Mac App Store
+
+- Amphetamine (keep the Mac awake)
+- Magnet (window management)
+- Pixelmator Pro
+- PiPifier (picture in picture for Safari)
+- Unzip: RAR ZIP 7Z Unarchiver
+
+### Download from the web
+
+- Adobe Creative Cloud (Photoshop)
+- [TinkerTool](https://www.bresink.com/osx/TinkerTool.html) (hidden macOS settings)
+- [Ora](https://ora.sh) browser
 
 ### Terminal
 
-The first app I install is to replace the built in `Terminal`.
+- Ghostty is the main terminal. iTerm2 settings: [iterm-theme.json](iterm-theme.json)
+- Font: Hack Nerd Font Mono (`brew install --cask font-hack-nerd-font`)
+- Prompt: Powerlevel10k, config in [`dotfiles/.p10k.zsh`](dotfiles/.p10k.zsh). Run `p10k configure` to change it.
 
-I prefer [iTerm2](https://iterm2.com/)
+`~/.zshrc` is not in this repo (it holds machine and work settings). The parts that matter:
 
+```sh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+source $ZSH/oh-my-zsh.sh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
+export PATH="$PATH:$HOME/.local/bin"
 ```
-brew install iterm2
-```
 
-Cutomize with powerlevel10k etc. [How to setup your Mac Terminal to be beautiful](https://www.youtube.com/watch?v=wNQpDWLs4To&list=PLGxdQClfjj1bqVf9cTtn0V3-aSsUYGJQl&index=2)
+### Zed
 
-These are my preferred settings:
-[iTerm Theme](/iterm-theme.json)
+Settings and the Apple theme are in [`dotfiles/zed`](dotfiles/zed). The agent panel expects a local [Ollama](https://ollama.com) model (`qwen3.5:9b`).
 
-Font: Hack Nerd Font Mono
-
-### Shell
-
-[Oh My Zsh](https://ohmyz.sh/) gives you a bunch of customizations out of the box.
-
-## OS Productivity/Other apps
-
-### Window Management
-
-[Magnet](https://cmacked.com/?s=magnet)
-
-### Clean my mac
-
-[Clean My Mac](https://cmacked.com/?s=clean+my+mac)
-
-# OS Settings
+### macOS settings
 
 1. Finder
 2. Dock
-3. Menu Bar
+3. Menu Bar (Ice hides the clutter, Stats shows CPU/RAM)
 
-# Inspo
+## Wallpaper
+
+[`richard-horvath-_nWaeTF6qo0-unsplash.jpg`](richard-horvath-_nWaeTF6qo0-unsplash.jpg)
+
+## Inspo
 
 [YouTube - Code Garden](https://www.youtube.com/watch?v=2_ZbslLnshw&list=PLGxdQClfjj1bqVf9cTtn0V3-aSsUYGJQl&index=3)

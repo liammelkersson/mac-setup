@@ -1,6 +1,0 @@
-git
-cowsay
-curl
-emacs
-nvm
-neovim
