@@ -2,6 +2,15 @@
 
 Apps, tools and settings I use on my Mac (Apple Silicon, macOS 27).
 
+## Daily drivers
+
+| Use | App |
+| --- | --- |
+| AI agents | [T3 Code](https://t3.codes) |
+| Browser | [Zen](https://zen-browser.app) |
+| Code editor | [Zed](https://zed.dev) |
+| Email | Outlook |
+
 ## Quick start
 
 On a fresh Mac, open `Terminal` and run:
